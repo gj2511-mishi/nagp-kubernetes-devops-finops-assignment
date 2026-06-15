@@ -1,1 +1,0 @@
-# nagp-kubernetes-devops-finops-assignment
