@@ -1,13 +1,18 @@
+const pool = require("../config/db");
+
 const getEmployees = async () => {
-  return [
-    {
-      id: 1,
-      name: "Rahul Sharma",
-      department: "Engineering",
-      designation: "Developer",
-      salary: 80000,
-    },
-  ];
+  const [rows] = await pool.query(`
+    SELECT
+      id,
+      name,
+      department,
+      designation,
+      salary
+    FROM employees
+    ORDER BY id
+  `);
+
+  return rows;
 };
 
 module.exports = {

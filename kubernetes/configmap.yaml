@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: employee-api-config
+  namespace: nagp
+data:
+  PORT: "3000"
+  DB_HOST: "mysql-service"
+  DB_PORT: "3306"
+  DB_NAME: "employee_db"
