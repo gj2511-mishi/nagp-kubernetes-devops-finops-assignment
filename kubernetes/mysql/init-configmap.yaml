@@ -1,0 +1,22 @@
+# kubernetes/mysql/init-configmap.yaml
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-init-script
+  namespace: nagp
+data:
+  init.sql: |
+    CREATE TABLE IF NOT EXISTS employees (
+      id INT PRIMARY KEY AUTO_INCREMENT,
+      name VARCHAR(100) NOT NULL,
+      department VARCHAR(100) NOT NULL,
+      designation VARCHAR(100) NOT NULL,
+      salary DECIMAL(10,2) NOT NULL
+    );
+
+    INSERT INTO employees (name, department, designation, salary)
+    VALUES
+    ('Gaurav Joshi', 'Engineering', 'Software Engineer', 80000),
+    ('Meenakshi Dhyani', 'HR', 'HR Manager', 70000),
+    ('Aadvita Joshi', 'Finance', 'Financial Analyst', 75000);
